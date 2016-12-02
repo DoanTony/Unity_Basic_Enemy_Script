@@ -64,13 +64,6 @@ namespace AnimatedPixelPack
 		private float groundRadius = 0.1f;
 		private Direction startDirection = Direction.Right;
 
-		/// <summary>
-		/// Instantiate a new Enemy with the supplied parameters
-		/// </summary>
-		/// <param name="instance">The instance to use as the base</param>
-		/// <param name="startDirection">Direction the new Enemy should be facing</param>
-		/// <param name="position">The position to spawn at</param>
-		/// <returns>The new Enemy</returns>
 		public static Enemy Create(Enemy instance, Direction startDirection, Vector3 position)
 		{
 			Enemy c = GameObject.Instantiate<Enemy>(instance);
@@ -116,12 +109,6 @@ namespace AnimatedPixelPack
 
 		}
 
-		/// <summary>
-		/// Perform movement for the Enemy
-		/// This should be called from the FixedUpdate() method as it makes changes to physics properties
-		/// </summary>
-		/// <param name="axis">The x and y values used for running and climbing ladders</param>
-		/// <param name="isHorizontalStillPressed">True if the user is still actively pressing the horizontal axis</param>
 		public void Move(Vector2 axis, bool isHorizontalStillPressed)
 		{
 			// Quit early if dead
@@ -226,12 +213,6 @@ namespace AnimatedPixelPack
 				
 		}
 
-		/// <summary>
-		/// Reduce the health of the Enemy by the specified amount
-		/// </summary>
-		/// <param name="damage">The amount of damage to apply</param>
-		/// <param name="direction">The direction that the damage came from (left < 0 > right)</param>
-		/// <returns>True if the Enemy dies from this damage, False if it remains alive</returns>
 		public bool ApplyDamage(int damage, float direction = 0)
 		{
 			if (!this.IsDead)
